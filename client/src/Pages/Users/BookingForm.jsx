@@ -3,24 +3,27 @@ import {Container, FloatingLabel, Form, Button, Row, Col} from 'react-bootstrap'
 import TheTimeline from '../../includes/TheTimeline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import {Link} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const BookingForm = () => {
   let today = new Date();
   let dateTime = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
+  const navigate = useNavigate();
+  
 
 
   function handleSubmit(){
-    // <Link to='/WaitingForDriverConfirmation'></Link>
+
+    navigate('/WaitingForDriverConfirmation')
   }
 
   return (
     <>
     <Row className='mt-2'>
         <Col className='mx-2' > 
-        <Link to='/Map'>
-        <FontAwesomeIcon icon={faCircleChevronLeft} className='timeline-icon-dropoff' style={{color:'green'}}/>
-        </Link>
+       
+        <FontAwesomeIcon icon={faCircleChevronLeft} className='timeline-icon-dropoff' style={{color:'green'}} onClick={()=>{navigate('/Map')}}/>
+       
         </Col>
     </Row>
     <Row>
@@ -66,9 +69,9 @@ const BookingForm = () => {
         
         <Row>
             <Col xs={ {span:8, offset: 2}} >
-              <Link to='/WaitingForDriverConfirmation'>
+       
                 <Button variant='success' className="w-100" type='submit' onClick={handleSubmit}>Confirm</Button>
-              </Link>
+            
             </Col>
         </Row>
         </Form>

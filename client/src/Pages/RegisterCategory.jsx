@@ -1,12 +1,10 @@
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsersBetweenLines, faRoute, faPersonWalkingLuggage } from '@fortawesome/free-solid-svg-icons';
-import user_icon from '../images/user_icon.png';
-import driver_icon from '../images/driver_icon.png';
-import toda_icon from '../images/toda_icon.png';
+
 
 const RegisterCategory = () => {
   return (

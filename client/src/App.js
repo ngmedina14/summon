@@ -18,6 +18,7 @@ import DriverRegistration from './Pages/DriverRegistration';
 import TodaRegistration from './Pages/TodaRegistration';
 import Login from './Pages/Login';
 import Summon from './Pages/Summon';
+import LandingPageNavBar from './includes/LandingPageNavBar';
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
     <>
     <Router>
       {/* <DriverHeader/> */}
-      <Header/>
+      {/* <Header/> */}
+      <LandingPageNavBar />
         <Routes>
           <Route path='/Pasundo' element={<Pasundo/>}/>
           <Route path='/Map' element={<Map/>}/>
@@ -48,7 +50,7 @@ function App() {
           <Route path='/Login' element={<Login/>}/>
 
           {/* Landing Page */}
-          <Route path='/Summon' element={<Summon/>}/>
+          <Route path='/' element={<Summon/>}/>
 
         </Routes>
     </Router>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row, Col, Card} from 'react-bootstrap';
+import { Row, Col, Card} from 'react-bootstrap';
 import driver1 from '../images/driver1.jpg';
 
 const DriverCard = () => {
@@ -10,7 +10,7 @@ const DriverCard = () => {
             <Col xs={12}>
             <Card style={{ width: '15rem', position: 'relative' }} className="bg-light" >
                      <div className=' d-flex justify-content-center align-items-center ' style={{height:'110px', width:'110px', borderRadius:'50%', position:'absolute', left:'30%', top:'-50px', border:'0.5px solid #e0e0e0'}}>
-                     <img width='100px' height='100px' src={driver1} style={{borderRadius:'50%', left:'30%', top:'-50px'}}  />
+                     <img width='100px' height='100px' src={driver1} style={{borderRadius:'50%', left:'30%', top:'-50px'}} alt=''  />
                      </div>
                     <Card.Body className='mt-5'>
                     <Card.Title className='text-center'>Jirah Joy Medina</Card.Title>

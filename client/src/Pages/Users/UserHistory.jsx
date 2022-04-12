@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../includes/Header';
 import {Accordion, Col, Row} from 'react-bootstrap';
 import driver1 from '../../images/driver1.jpg';
 import TheTimeline from '../../includes/TheTimeline';

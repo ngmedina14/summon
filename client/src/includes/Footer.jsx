@@ -1,6 +1,6 @@
 import React from 'react';
 import pasundo1 from '../images/pasundo1.png';
-import {Button, Col, Container, Row} from 'react-bootstrap';
+import { Col, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faSquarePhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 

@@ -45,7 +45,7 @@
                 
             <Form.Control type="file" placeholder="Choose profile photo" className='mb-1' required/>
             <Form.Group as={Row} className="mb-2" controlId="formHorizontalCheck">
-                <Col sm={{ span: 10, offset: 2 }}>
+                <Col sm={{ span: 12}} >
                 <Form.Check label="I read and agree to the Terms &amp; Condition." required />
                 </Col>
             </Form.Group>
@@ -55,7 +55,7 @@
                 </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-2">
-                <Col sm={12} className="text-center">
+                <Col sm={12}  className="text-center">
                 <Form.Label className='mx-1' >Already have an account?</Form.Label>
                     <Link to="/Login" className='font-weight-bolder text-success' >
                         <span style={{fontWeight: 'bold'}} >Login here</span>

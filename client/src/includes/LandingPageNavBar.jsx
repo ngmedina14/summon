@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Container,Form, FormControl, Nav, Navbar} from 'react-bootstrap';
+import { Container, Nav, Navbar} from 'react-bootstrap';
 
 const LandingPageNavBar = () => {
   return (
@@ -14,11 +14,14 @@ const LandingPageNavBar = () => {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#about">About Us</Nav.Link>
+      <Nav.Link href="#objectives">What We Do</Nav.Link>
         
 
       </Nav>
-    <Button variant="outline-success">Login</Button>
-    <Button variant="outline-success">Register</Button>
+    {/* <Button variant="outline-success">Login</Button>
+    <Button variant="outline-success">Register</Button> */}
     </Navbar.Collapse>
   </Container>
 </Navbar>

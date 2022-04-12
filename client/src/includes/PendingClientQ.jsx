@@ -1,10 +1,11 @@
 import React from 'react';
 import {Button, Card, Col, Row, Stack} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import TheTimeline from './TheTimeline';
 
 const PendingClientQ = () => {
+  const navigate = useNavigate();
   return (
     <Row xs={12} >
       <Col className='d-flex flex-column justify-content-center align-items-center'>
@@ -29,9 +30,7 @@ const PendingClientQ = () => {
           </Card.Text>
           <Row>
               <Col className='text-center'>
-                <Link to='/DriverMap'>
-                    <Button variant="outline-success">Pick-up</Button>
-                </Link>
+                    <Button variant="outline-success" onClick={()=>{ navigate('/DriverMap')}}>Pick-up</Button>
               </Col>
           </Row>
         </Card.Body>

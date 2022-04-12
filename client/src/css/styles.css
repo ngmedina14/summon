@@ -28,8 +28,8 @@ p{
 
 @media screen and (max-width: 495px){
       .heroImg{
-          width: 280px;
-          height: 280px;  
+          width: 250px;
+          height: 250px;  
           margin-top: 20px;
       }
 }

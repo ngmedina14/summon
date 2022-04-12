@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Container} from 'react-bootstrap';
 import pasundo2 from '../../images/pasundo2.png';
-import { Link } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 const Pasundo = () => {
-
+  const navigate = useNavigate();
   return (
     <>
     <Container className="p-2 ">
@@ -18,9 +18,9 @@ const Pasundo = () => {
           <p className='text-center px-5 py-3 fs-5'>Request a ride and get pick up by our toda drivers</p>
         </div>
         <div>
-            <Link to='/Map'>
-            <Button variant='outline-success' size="lg" >Pasundo</Button> 
-            </Link>
+           
+            <Button variant='outline-success' size="lg" onClick={()=>{ navigate('/Map') }} >Pasundo</Button> 
+           
         </div>
       </div>
     </Container>

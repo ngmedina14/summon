@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import styles from './css/styles.css'
-import { StyledEngineProvider } from '@mui/material/styles';
+
 
 ReactDOM.render(
   <React.StrictMode>

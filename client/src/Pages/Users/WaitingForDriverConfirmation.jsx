@@ -1,12 +1,12 @@
 import React from 'react';
 import {Container, Form, Button} from 'react-bootstrap';
 import pasundo2 from '../../images/pasundo2.png';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 
 const WaitingForDriverConfirmation = (props) => {
-
+  const navigate = useNavigate();
   
   return (
     <Container className='p-4'>
@@ -20,20 +20,20 @@ const WaitingForDriverConfirmation = (props) => {
       <div className='mt-5'>
           <h6 className=' text-center'>Toda Driver Waiting List:</h6>
           <ul>
-              <li>Driver 1</li>
-              <li>Driver 2</li>
-              <li>Driver 3</li>
-              <li>Driver 4</li>
-              <li>Driver 5</li>
-              <li>Driver 6</li>
-              <li>Driver 7</li>
+              <li>Pasenger 1</li>
+              <li>Pasenger 2</li>
+              <li>Pasenger 3</li>
+              <li>Pasenger 4</li>
+              <li>Pasenger 5</li>
+              <li>Pasenger 6</li>
+              <li>Pasenger 7</li>
           </ul>
           </div>
     </Container>
     <Form action='' method='POST' className='text-center'>
-      <Link to='/BookingForm'>
-      <Button variant='success' type='submit'>Cancel</Button> 
-      </Link>
+      
+      <Button variant='success' type='submit' onClick={()=>{navigate('/BookingForm')}}>Cancel</Button> 
+      
     </Form>
     </Container>
   )

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Container} from 'react-bootstrap';
 import pasundo2 from '../../images/pasundo2.png';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const DriverCheckIn = () => {
-    
+    const navigate = useNavigate();
   return (
     
     <>
@@ -19,9 +19,9 @@ const DriverCheckIn = () => {
           <p className='text-center px-5 py-3 fs-5'>Check client queeing to accept passenger.</p>
         </div>
         <div>
-          <Link to='/ClientQueuing'>
-            <Button variant='outline-success' type='submit' size="lg">Check In</Button> 
-          </Link>
+          
+            <Button variant='outline-success' type='submit' size="lg" onClick={()=> {navigate('/ClientQueuing')}}>Check In</Button> 
+          
         </div>
       </div>
     </Container>

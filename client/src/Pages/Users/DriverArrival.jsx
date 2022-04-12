@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-import {Container, Row, Col, Card} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TheTimeline from '../../includes/TheTimeline';
 import DriverCard from '../../includes/DriverCard';
 
@@ -12,6 +12,7 @@ import DriverCard from '../../includes/DriverCard';
 
 
 const DriverArrival = () => {
+    const navigate = useNavigate();
   return (
     <Container className=''>
         <Row className='pt-2'>
@@ -24,12 +25,12 @@ const DriverArrival = () => {
         <TheTimeline/>
         <Row>
             <Col xs={12} className='d-flex justify-content-around'>
-                <Link to='/BookingForm'>
-                    <Button variant='outline-success'>Cancel</Button>
-                </Link>
-                <Link to='/Pasundo'>
-                    <Button variant='success'>Arrived</Button>
-                </Link>
+                
+                    <Button variant='outline-success' onClick={()=>{navigate('/BookingForm')}}>Cancel</Button>
+                
+                
+                    <Button variant='success' onClick={()=>{navigate('/Pasundo')}}>Arrived</Button>
+               
             </Col>
         </Row>
       

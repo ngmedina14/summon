@@ -3,7 +3,7 @@ import React from 'react'
 const AboutSection = () => {
   return (
     <>
-        <section className='p-5 bg-success text-white'>
+        <section className='p-5 bg-success text-white' id='about'  >
             <h4>EFFICIENT COMMUNITY TRANSPORT</h4>
             
             <p>

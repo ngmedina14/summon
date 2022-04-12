@@ -1,9 +1,9 @@
 import React from 'react';
 import AboutSection from '../includes/AboutSection';
 import Footer from '../includes/Footer';
-import Header from '../includes/Header';
+
 import HeroSection from '../includes/HeroSection';
-import LandingPageNavBar from '../includes/LandingPageNavBar';
+// import LandingPageNavBar from '../includes/LandingPageNavBar';
 import ObjectivesSection from '../includes/ObjectivesSection';
 
 
