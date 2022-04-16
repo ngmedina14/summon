@@ -22,7 +22,7 @@ const BookingForm = () => {
     <Row className='mt-2'>
         <Col className='mx-2' > 
        
-        <FontAwesomeIcon icon={faCircleChevronLeft} className='timeline-icon-dropoff' style={{color:'green'}} onClick={()=>{navigate('/Map')}}/>
+        <FontAwesomeIcon icon={faCircleChevronLeft} className='timeline-icon-dropoff' style={{color:'green'}} onClick={()=>{navigate('/Location')}}/>
        
         </Col>
     </Row>

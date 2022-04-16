@@ -26,6 +26,11 @@ p{
       font-size: 13px;
 }
 
+.location-map {
+    border:'1px solid green';
+    min-height:'70vh';
+}
+
 @media screen and (max-width: 495px){
       .heroImg{
           width: 250px;

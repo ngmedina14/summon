@@ -1,6 +1,6 @@
 // import React from "react";
 import Pasundo from './Pages/Users/Pasundo';
-import Map from './Pages/Users/Map';
+import Location from './Pages/Users/Location';
 import BookingForm from './Pages/Users/BookingForm';
 import WaitingForDriverConfirmation from './Pages/Users/WaitingForDriverConfirmation';
 import DriverArrival from './Pages/Users/DriverArrival';
@@ -30,7 +30,7 @@ function App() {
       <LandingPageNavBar />
         <Routes>
           <Route path='/Pasundo' element={<Pasundo/>}/>
-          <Route path='/Map' element={<Map/>}/>
+          <Route path='/Location' element={<Location/>}/>
           <Route path='/BookingForm' element={<BookingForm/>}/>
           <Route path='/WaitingForDriverConfirmation' element={<WaitingForDriverConfirmation/>}/>
           <Route path='/DriverArrival' element={<DriverArrival/>}/>

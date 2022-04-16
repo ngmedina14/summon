@@ -19,7 +19,7 @@ const Pasundo = () => {
         </div>
         <div>
            
-            <Button variant='outline-success' size="lg" onClick={()=>{ navigate('/Map') }} >Pasundo</Button> 
+            <Button variant='outline-success' size="lg" onClick={()=>{ navigate('/Location') }} >Pasundo</Button> 
            
         </div>
       </div>
