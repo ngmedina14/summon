@@ -21,6 +21,7 @@ const Location = () => {
       const circle = L.circle(e.latlng, radius);
       circle.addTo(map);
       onMapClick(e);
+      sessionStorage.setItem('coordinates', JSON.stringify({'latitude':e.latlng.lat,'longitude':e.latlng.lng}));
     }
 
     const onMapClick = (e)=>{

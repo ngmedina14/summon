@@ -1,10 +1,28 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleDot, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import {Col, Container, Row} from 'react-bootstrap';
 
 export default function TheTimeline() {
+  const [locationName, setLocationName] = useState();
   
+
+  function retrieveSessionData(data) {
+    var dataArray = JSON.parse(sessionStorage.getItem(data))
+    return (dataArray == null) ? {} : dataArray
+  }
+  
+  useEffect(()=>{
+    //Fetch from server toda coordinates
+
+    var user = retrieveSessionData('coordinates')
+    fetch('https://nominatim.openstreetmap.org/reverse?lat='+user.latitude+'&lon='+user.longitude+'&format=json')
+      .then(response => response.json())
+      .then(data => {
+        setLocationName(data.display_name)
+      });
+  },[])
+
 
   return (
     <Container>
@@ -15,7 +33,7 @@ export default function TheTimeline() {
         <Col xs={11} md={11} lg={11}>
         <span style={{fontSize:'13px'}}>
           <b>Location:</b> <br />
-          32 Margarita, Makati, 1232 Kalakhang Maynila
+          {locationName}
         </span>
         </Col>
       </Row>

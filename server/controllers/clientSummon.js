@@ -15,6 +15,6 @@ const db = mysql2.createConnection({
   });
 
 
-  exports.client = ((req,res)=>{
+  exports.addAppointment = ((req,res)=>{
     res.json({"user":["fuck","Yeszer"]})
-    })
+  })
