@@ -5,10 +5,9 @@ import 'leaflet/dist/leaflet.css'
 import {MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import L from "leaflet";
 import icon from "./Constants";
+import Header from '../../includes/Header';
 const mapLocation = [14.47155151115248,121.03878021240236];
 const Location = () => {
-
-
   function LocationMarker() {
     const [position, setPosition] = useState(null);
     const [locationName, setLocationName] = useState();
@@ -75,6 +74,8 @@ const Location = () => {
   }
   
   return (
+    <>
+    <Header/>
     <Container className='px-4'>
     <Row>
         <Col>
@@ -94,6 +95,7 @@ const Location = () => {
         </Col>
     </Row>
     </Container>
+    </>
   )
 }
 

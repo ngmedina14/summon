@@ -30,6 +30,11 @@ p{
     border:'1px solid green';
     min-height:'70vh';
 }
+.heroImg{
+    width: 400px;
+    height: 400px;  
+    /* margin-top: 20px; */
+}
 
 @media screen and (max-width: 495px){
       .heroImg{

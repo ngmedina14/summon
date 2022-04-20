@@ -4,17 +4,31 @@ import TheTimeline from '../../includes/TheTimeline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import Header from '../../includes/Header';
+
 
 const BookingForm = () => {
   let today = new Date();
-  let dateTime = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
+  let minDateTime = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().substring(0, 10);
+  minDateTime = minDateTime + 'T00:00:00';
+  let currentDateTime = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().substring(0, 16);
+  const [clickOnce, setClickOnce] = useState(false);
+
+ 
+
   const navigate = useNavigate();
+  const [clientLocation, setClientLocation] = useState();
+  const [minHeadCount, setMinHeadCount] = useState(0);
+
   const [ appointment, setAppointment] = useState({
+    user:null,
     headCount: "",
-    bookingDate: dateTime,
+    bookingDate: currentDateTime, // edited
     notes: "",
     latitude:"",
-    longitude: ""
+    longitude: "",
+    location_name: "",
 });
 
 const handleInput = (e) => {
@@ -26,34 +40,54 @@ const retrieveSessionData = (data) => {
   let dataArray = JSON.parse(sessionStorage.getItem(data))
   return (dataArray == null) ? [] : dataArray
 }
+const retrieveLocalData = (data) => {
+  let dataArray = JSON.parse(localStorage.getItem(data))
+  return (dataArray == null) ? [] : dataArray
+}
 
-  function handleSubmit(){
+const [user,setUser] = useState(()=>{
+  let authUser = retrieveLocalData('user');
+  console.log(authUser.id)
+  return authUser.id
+});
+
+  function handleSubmit(e){
+    e.preventDefault();
+    console.log(appointment)
     // sessionStorage.setItem('appointment', JSON.stringify({'notes':notes,'head':head,'bookingDate':book}));// post to backend
     const data = {
+      user:appointment.user,
       headCount: appointment.headCount,
       bookingDate: appointment.bookingDate,
       notes: appointment.notes,
       latitude: appointment.latitude,
-      longitude: appointment.longitude
+      longitude: appointment.longitude,
+      location_name: appointment.location_name
   }
-  fetch("localhost:5000/client/add-appointment",  {body: JSON.stringify(data)}).then((res) => {
-    if(res.data.Status === 200) {
+  axios.post("client/add-appointment",data)
+  .then((res) => {
+        console.log(res)
+        if(res.status === 200) {
         // after success initialize the  field names from may laman to empty strings
         setAppointment({
+          user:null,
           headCount: "",
           bookingDate: "",
           notes: "",
           latitude:"",
-          longitude: ""});
+          longitude: "",
+          location_name:""});
+          localStorage.setItem('appointment', JSON.stringify({'id':res.data.appointment_id}));
         //redirecting the page by using useNavigate history
         navigate('/WaitingForDriverConfirmation')
         } else {
-            if(res.data.Status === 422){
+            if(res.status === 422){
                 // setProduct({...productInput, error_list: res.data.validate_err});
-                console.log("Not Saved")
+                console.log(res)
             }
         }
     });
+    setClickOnce(true)
   }
 
   useEffect(()=>{
@@ -64,14 +98,37 @@ const retrieveSessionData = (data) => {
     //   .then(data => {
     //     setLocationName(data.display_name)
     //   });
-    let coordinates = retrieveSessionData('coordinates');
-    console.log(coordinates);
-    setAppointment({...appointment, ["headCount"]: "2",["latitude"]: String(coordinates.latitude),["longitude"]: String(coordinates.longitude)}); // from toda min head count
-  },[])
+
+    if (localStorage.getItem("client-transaction") != null) {
+      navigate('/DriverArrival');
+    }
+    if (localStorage.getItem("appointment") != null) {
+      navigate('/WaitingForDriverConfirmation');
+    }
+
+    axios.get("driver/get-toda/"+1)
+    .then((res) => {
+      console.log(res)
+          if(res.status === 200) {
+            //GET COORDINATE
+            let coordinates = retrieveSessionData('coordinates');
+            console.log(coordinates);
+            setMinHeadCount(res.data.result.min_head_count);
+            setAppointment({...appointment, ["headCount"]: res.data.result.min_head_count,
+            ["latitude"]: String(coordinates.latitude),
+            ["longitude"]: String(coordinates.longitude),
+            ["user"]:user,
+            ["location_name"]: clientLocation
+          }); // from toda min head count
+          }
+      });
+
+    },[clientLocation])
 
 
   return (
     <>
+    <Header/>
     <Row className='mt-2'>
         <Col className='mx-2' > 
        
@@ -100,30 +157,31 @@ const retrieveSessionData = (data) => {
         <Col>
         <FloatingLabel controlId="floatingSelect" label="Head Count" className="mb-2">
           <Form.Select aria-label="Head Count" name="headCount" onChange={handleInput} required>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
+            <option value="1" selected={(minHeadCount==1)?true:false}>One</option>
+            <option value="2" selected={(minHeadCount==2)?true:false}>Two</option>
+            <option value="3" selected={(minHeadCount==3)?true:false}>Three</option>
+            <option value="4" selected={(minHeadCount==4)?true:false}>Four</option>
+            <option value="5" selected={(minHeadCount==5)?true:false}>Five</option>
           </Form.Select>
         </FloatingLabel>
         </Col>
 
        </Row>
 
-        <FloatingLabel controlId="floatingInput" label="Date" className="mb-2" >
-        <Form.Control type="datetime-local" name="bookingDate" placeholder="Date" defaultValue={dateTime} min={dateTime} onChange={handleInput}/>
-        </FloatingLabel>
+        {/* <FloatingLabel controlId="floatingInput" label="Date" className="mb-2" >
+        <Form.Control type="datetime-local" name="bookingDate" placeholder="Date" defaultValue={currentDateTime} min={minDateTime} onChange={handleInput}/>
+        </FloatingLabel> */}
 
         <FloatingLabel controlId="floatingTextArea" label="Notes" className="mb-2">
         <Form.Control as="textarea" name="notes" placeholder="Notes" style={{height:'100px', resize:'none'}} onChange={handleInput} required/>
         </FloatingLabel>
 
-        <TheTimeline/>
+        <TheTimeline setClientLocation={setClientLocation} />
         
         <Row>
             <Col xs={ {span:8, offset: 2}} >
        
-                <Button variant='success' className="w-100" type='submit' onClick={handleSubmit}>Confirm</Button>
+                <Button disabled={clickOnce} variant='success' className="w-100" type='submit' onClick={handleSubmit}>Confirm</Button>
             
             </Col>
         </Row>

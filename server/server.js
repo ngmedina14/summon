@@ -1,8 +1,9 @@
 const express = require('express'); // Import express framework
 const app = express(); // Instantiate Express JS to a variable
 const port = 5000 // Port for the server
+var cors = require('cors')
 
-
+app.use(cors());
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());// Prerequisite for express JS
 

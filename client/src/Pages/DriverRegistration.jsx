@@ -1,11 +1,13 @@
 import React from 'react';
 import {Button, Col, Container, FloatingLabel, Form, Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import LandingPageNavBar from '../includes/LandingPageNavBar';
 
 const DriverRegistration = () => {
    
   return (
     <>
+        <LandingPageNavBar/>
         <h5 className='text-center py-2'>Driver Registration</h5>
         <Container>
             <Form>

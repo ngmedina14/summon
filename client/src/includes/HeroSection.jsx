@@ -20,7 +20,7 @@ const HeroSection = () => {
                 <h4>No More Waiting</h4>
                 <h6>Just confirm your location and book a Trike. Enjoy the affordable and hassle free ride with <span className='text-success'>Summon Webapp</span></h6>
                 
-                <div>
+                <div className='mt-2'>
                     <Link to="/Login">
                         <Button variant='outline-success' className='mx-2'>Login</Button>
                     </Link>

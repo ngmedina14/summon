@@ -2,12 +2,14 @@ import React from 'react';
 import { Button, Container} from 'react-bootstrap';
 import pasundo2 from '../../images/pasundo2.png';
 import {useNavigate} from 'react-router-dom';
+import DriverHeader from '../../includes/DriverHeader';
 
 const DriverCheckIn = () => {
     const navigate = useNavigate();
   return (
     
     <>
+    <DriverHeader/>
     <Container className="p-2 ">
       <div style={{minHeight:'90vh'}} className='d-flex flex-column justify-content-center align-items-center'>
       

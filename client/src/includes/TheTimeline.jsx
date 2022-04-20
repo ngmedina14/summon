@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleDot, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import {Col, Container, Row} from 'react-bootstrap';
+import axios from 'axios';
 
-export default function TheTimeline() {
+export default function TheTimeline({setClientLocation}) {
   const [locationName, setLocationName] = useState();
+  const [todaLocationName, setTodaLocationName] = useState();
   
 
   function retrieveSessionData(data) {
@@ -13,13 +15,21 @@ export default function TheTimeline() {
   }
   
   useEffect(()=>{
-    //Fetch from server toda coordinates
+    axios.get("driver/get-toda/"+1)
+    .then((res) => {
+      console.log(res)
+          if(res.status === 200) {
+              setTodaLocationName(res.data.result.location)
+              
+          }
+      });
 
     var user = retrieveSessionData('coordinates')
     fetch('https://nominatim.openstreetmap.org/reverse?lat='+user.latitude+'&lon='+user.longitude+'&format=json')
       .then(response => response.json())
       .then(data => {
         setLocationName(data.display_name)
+        setClientLocation(data.display_name);
       });
   },[])
 
@@ -45,7 +55,7 @@ export default function TheTimeline() {
         <Col xs={11} md={11} lg={11}>
         <span style={{fontSize:'13px'}}>
           <b>Toda Terminal:</b> <br />
-          Market Market Loading/Unloading Bay, Taguig, Metro Manila
+          {todaLocationName}
         </span>
         </Col>
       </Row>

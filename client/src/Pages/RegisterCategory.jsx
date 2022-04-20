@@ -4,10 +4,14 @@ import {Link} from 'react-router-dom';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsersBetweenLines, faRoute, faPersonWalkingLuggage } from '@fortawesome/free-solid-svg-icons';
+import LandingPageNavBar from '../includes/LandingPageNavBar';
 
 
 const RegisterCategory = () => {
   return (
+    <>
+    <LandingPageNavBar/>
+
     <div className='vh-90 bg-warning d-flex flex-column justify-content-center align-items-center'>
         
         <Row className='py-5'>
@@ -69,6 +73,7 @@ const RegisterCategory = () => {
        
 
     </div>
+    </>
   )
 }
 

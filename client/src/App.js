@@ -19,6 +19,8 @@ import TodaRegistration from './Pages/TodaRegistration';
 import Login from './Pages/Login';
 import Summon from './Pages/Summon';
 import LandingPageNavBar from './includes/LandingPageNavBar';
+import axios from 'axios';
+axios.defaults.baseURL="http://192.168.254.123:5000/";
 
 
 function App() {
@@ -27,7 +29,7 @@ function App() {
     <Router>
       {/* <DriverHeader/> */}
       {/* <Header/> */}
-      <LandingPageNavBar />
+      
         <Routes>
           <Route path='/Pasundo' element={<Pasundo/>}/>
           <Route path='/Location' element={<Location/>}/>

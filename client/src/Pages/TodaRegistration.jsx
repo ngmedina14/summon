@@ -1,8 +1,10 @@
 import React from 'react';
 import {Button, Col, Container, FloatingLabel, Form, Row} from 'react-bootstrap';
+import LandingPageNavBar from '../includes/LandingPageNavBar';
 const TodaRegistration = () => {
   return (
     <>
+    <LandingPageNavBar/>
     <h5 className='text-center py-2'>Toda Registration</h5>
         <Container>
             <Form>
@@ -21,7 +23,7 @@ const TodaRegistration = () => {
             </FloatingLabel>           
             
             <Form.Group as={Row} className="mb-2" controlId="formHorizontalCheck">
-                <Col sm={{ span: 10, offset: 2 }}>
+                <Col sm={12}>
                 <Form.Label className='mx-1' >Vehicle Type</Form.Label>
                 <Form.Check label="Tricyle" required />
                 <Form.Check label="Padyak" required />

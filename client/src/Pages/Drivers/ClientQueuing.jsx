@@ -1,4 +1,5 @@
 import React from 'react';
+import DriverHeader from '../../includes/DriverHeader';
 // import {Button, Card, Col, Row, Stack} from 'react-bootstrap';
 import NavTab from '../../includes/NavTab';
 import PendingClientQ from '../../includes/PendingClientQ';
@@ -7,7 +8,8 @@ import PendingClientQ from '../../includes/PendingClientQ';
 const ClientQueuing = () => {
   return (
     <>
-    <NavTab/>
+    <DriverHeader/>
+    {/* <NavTab/> */}
     <PendingClientQ/>
     </>
   )

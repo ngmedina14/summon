@@ -1,5 +1,5 @@
 import React from 'react';
-import pasundo1 from '../images/pasundo1.png';
+import logo from '../images/summon-logo.png';
 import { Col, Row} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faSquarePhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ const Footer = () => {
     <section className='px-5 py-4 bg-success'>
         <Row>
             <Col xs={12} md={12} lg={4} className='text-center mb-2'>
-            <img src={pasundo1} alt="" width='120px' height='120px' className='rounded-circle border'  />
+            <img src={logo} alt="" width='200px' height='200px' className=''  />
             </Col>
             <Col xs={12} md={12} lg={8}>
                 <Row className='text-center text-white'>

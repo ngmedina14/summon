@@ -2,10 +2,10 @@ import React from 'react';
 import { Row, Col, Card} from 'react-bootstrap';
 import driver1 from '../images/driver1.jpg';
 
-const DriverCard = () => {
+const DriverCard = ({transaction}) => {
   return (
     <>
-    <section className='d-flex flex-column justify-content-end align-items-center' style={{position:'relative', fontSize:'13px', height:'270px'}}>
+    <section className='d-flex flex-column justify-content-end align-items-center' style={{position:'relative', fontSize:'13px', height:'300px'}}>
             <Row className='mb-5'>
             <Col xs={12}>
             <Card style={{ width: '15rem', position: 'relative' }} className="bg-light" >
@@ -13,12 +13,15 @@ const DriverCard = () => {
                      <img width='100px' height='100px' src={driver1} style={{borderRadius:'50%', left:'30%', top:'-50px'}} alt=''  />
                      </div>
                     <Card.Body className='mt-5'>
-                    <Card.Title className='text-center'>Jirah Joy Medina</Card.Title>
+                    <Card.Title className='text-center'>{transaction.driver_fname + ' ' + transaction.driver_lname}</Card.Title>
                     <Card.Text className='text-center'>
-                            <span>09171777777</span>
+                            <span style={{fontWeight:'bold'}}>{transaction.mobile}</span>
                             <div className='d-flex justify-content-around'>
-                                <span> <b>Plate Number:</b> <br/ >3001-1234567</span>
-                                <span> <b>Vehicle Type:</b> <br/ >Tricycle</span>
+                                <span> <b>Plate Number:</b> <br/ >{transaction.plate_number}</span>
+                                <span> <b>Vehicle Type:</b> <br/ >{transaction.vehicle}</span>
+                            </div>
+                            <div>
+                            <span style={{fontWeight:'bold'}}>Total Amount: &#8369; {transaction.total_amount}</span>
                             </div>
                     </Card.Text>
                     </Card.Body>

@@ -2,10 +2,11 @@ import React, {useEffect,useState,useRef} from 'react';
 import {Button, Card, Col, Row, Stack} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import AppointmentCard from './AppointmestCard';
+// import AppointmentCard from './AppointmestCard';
+import AppointmentCardAdvance from './AppointmentCardAdvance';
 
-const PendingClientQ = () => {
-  const navigate = useNavigate();
+const AdvanceClientQ = () => {
+    const navigate = useNavigate();
 
  
 
@@ -16,7 +17,7 @@ const PendingClientQ = () => {
   const DisplayCards = ()=>{
     setCardHTML(appointment.map((card)=>{
           return(
-            <AppointmentCard AppointmentID={card.appointment_id} UserID={card.user_id} HeadCount={card.head_count} BookingDate={card.booking_date} Latitude={card.latitude} Longitude={card.longitude} Location={card.location} Notes={card.notes}/>
+            <AppointmentCardAdvance AppointmentID={card.appointment_id} UserID={card.user_id} HeadCount={card.head_count} BookingDate={card.booking_date} Latitude={card.latitude} Longitude={card.longitude} Location={card.location} Notes={card.notes}/>
           )
           }))
   }
@@ -30,7 +31,7 @@ const PendingClientQ = () => {
     if (true) {
       counter.current += 1;
       const timer = setTimeout(() =>{
-            axios.get("driver/get-appointment/")
+            axios.get("driver/get-advance-appointment/")
           .then((res) => {
                 if(res.status === 200) {
                   if (res.data.hasOwnProperty('result')){
@@ -49,6 +50,7 @@ const PendingClientQ = () => {
     }
   },[state]);
 
+
   return (
     <Row xs={12} >
       <Col className='d-flex flex-wrap justify-content-center'>
@@ -58,4 +60,4 @@ const PendingClientQ = () => {
   )
 }
 
-export default PendingClientQ
+export default AdvanceClientQ
