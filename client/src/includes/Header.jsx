@@ -18,6 +18,8 @@ const Header = () => {
 
   const logout = ()=>{
     localStorage.removeItem('user');
+    localStorage.removeItem('appointment');
+    localStorage.removeItem('client-transaction');
  
   }
 

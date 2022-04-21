@@ -3,6 +3,7 @@ import {Button, Card, Col, Row, Stack} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import AppointmentCard from './AppointmestCard';
+import empty from '../images/no-data.png';
 
 const PendingClientQ = () => {
   const navigate = useNavigate();
@@ -37,9 +38,14 @@ const PendingClientQ = () => {
                     setAppointment(res.data.result);
                     DisplayCards();
                   }else{
-                    setCardHTML('No Appointment')
+                    setCardHTML(
+                      
+                      <div>
+                        <img src={empty}  alt="" className='mt-5 img-fluid w-100'/>
+                        <h6 className='text-center'>No appointments available</h6>
+                      </div>
+                    );
                   }
-                  
                 } 
             });
         
@@ -51,7 +57,7 @@ const PendingClientQ = () => {
 
   return (
     <Row xs={12} >
-      <Col className='d-flex flex-wrap justify-content-center'>
+      <Col className='d-flex flex-wrap justify-content-center align-items-end'>
           {cardHTML}
       </Col>
     </Row>

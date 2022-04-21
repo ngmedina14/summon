@@ -221,7 +221,7 @@ const db = mysql2.createConnection({
     'inner join drivers d on t.driver_id = d.driver_id '+
     'inner join vehicles v on d.vehicle_id = v.vehicle_id '+
     'inner join todas td on td.toda_id = d.toda_id '+
-    'where t.driver_id = ?', driver_id,
+    'where t.driver_id = ? order by t.created_date desc', driver_id,
     (error,row)=>{
       if (error){console.log("get transaction:"+error.message)
       res.status(422);

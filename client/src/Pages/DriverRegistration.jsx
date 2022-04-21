@@ -1,13 +1,13 @@
 import React from 'react';
 import {Button, Col, Container, FloatingLabel, Form, Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import LandingPageNavBar from '../includes/LandingPageNavBar';
+import LandingPageNavForReg from '../includes/LandingPageNavForReg';
 
 const DriverRegistration = () => {
    
   return (
     <>
-        <LandingPageNavBar/>
+        <LandingPageNavForReg/>
         <h5 className='text-center py-2'>Driver Registration</h5>
         <Container>
             <Form>
@@ -80,7 +80,7 @@ const DriverRegistration = () => {
             <Form.Group as={Row} className="mb-2">
                 <Col sm={12} className="text-center">
                 <Form.Label className='mx-1' >Already have an account?</Form.Label>
-                    <Link to="/UserLogin" className='font-weight-bolder text-success' >
+                    <Link to="/Login" className='font-weight-bolder text-success' >
                         <span style={{fontWeight: 'bold'}} >Login here</span>
                         {/* style={{fontWeight: 'bold', textDecoration:'none'}} */}
                     </Link>

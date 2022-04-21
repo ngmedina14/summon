@@ -2,8 +2,9 @@ import React, {useEffect,useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { Button, Col, Container, FloatingLabel, Form, Row } from 'react-bootstrap'
 import axios from 'axios';
-import LandingPageNavBar from '../includes/LandingPageNavBar';
+
 import swal from 'sweetalert';
+import LandingPageNavForReg from '../includes/LandingPageNavForReg';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ const Login = () => {
 
   return (
     <>
-    <LandingPageNavBar />
+    <LandingPageNavForReg />
   <h5 className='text-center py-2'>Login your account</h5>
         <Container>
             <Form>

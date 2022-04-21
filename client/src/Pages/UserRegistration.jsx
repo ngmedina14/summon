@@ -1,7 +1,7 @@
  import React, {useState, useEffect} from 'react';
  import {Button, Col, Container, FloatingLabel, Form, Row} from 'react-bootstrap';
  import {Link} from 'react-router-dom';
-import LandingPageNavBar from '../includes/LandingPageNavBar';
+import LandingPageNavForReg from '../includes/LandingPageNavForReg';
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom'; 
 import swal from 'sweetalert';
@@ -70,7 +70,7 @@ import swal from 'sweetalert';
                             navigate('/Login')
                         }
                         if (res.data.hasOwnProperty('message')){
-                            swal("Invalid User Registration", res.data.message, 'warning');
+                            swal("Invalid User Registration", res.data.message, 'warning', '#66bb6a');
                             console.log(res.data.message);
                         }
                     
@@ -100,7 +100,7 @@ import swal from 'sweetalert';
 
    return (
      <>
-     <LandingPageNavBar/>
+     <LandingPageNavForReg/>
         <h5 className='text-center py-2'>Create an account</h5>
         <Container>
             <Form onSubmit={saveUser}>

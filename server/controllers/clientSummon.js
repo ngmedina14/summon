@@ -71,7 +71,7 @@ const db = mysql2.createConnection({
 
     if (row.length > 0){
         res.status(200);
-        res.json({"message":"transaction completed"})
+        res.json({"message":"Your driver has arrived."})
       }else{
         res.status(422);
         res.json({"message":"still pending"})
@@ -90,7 +90,7 @@ const db = mysql2.createConnection({
     'inner join drivers d on t.driver_id = d.driver_id '+
     'inner join vehicles v on d.vehicle_id = v.vehicle_id '+
     'inner join todas td on td.toda_id = d.toda_id '+
-    'where t.user_id = ?', user_id,
+    'where t.user_id = ? order by t.created_date desc ', user_id,
     (error,row)=>{
       if (error){console.log("get transaction:"+error.message)
       res.status(422);

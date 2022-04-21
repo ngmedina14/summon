@@ -12,7 +12,7 @@ const RegisterCategory = () => {
     <>
     <LandingPageNavBar/>
 
-    <div className='vh-90 bg-warning d-flex flex-column justify-content-center align-items-center'>
+    <div className='bg-warning d-flex flex-column justify-content-center align-items-center'>
         
         <Row className='py-5'>
         <Col xs={12} md={12} lg={4} className='d-flex justify-content-center' >

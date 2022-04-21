@@ -26,6 +26,9 @@ const DriverHeader = () => {
     if (localStorage.getItem("driver") === null) {
       navigate('/');
     }
+    if (localStorage.getItem("transaction") != null) {
+      navigate('/DriverMap');
+    }
     let driver=retrieveLocalData('driver')
     axios.get("auth/get-driver/"+driver.id)
     .then((res) => {

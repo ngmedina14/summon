@@ -106,44 +106,85 @@ const retrieveLocalData = (data) => {
   },[])
 
   return (
+    // <Card
+    //     style={{ width: '18rem' }}
+    //     className="m-3" >
+    //     <Card.Header>
+    //       <Row>
+    //         <Col className='text-center'>
+    //         <h6 className='mb-2'>Head Count: <br/> {String(HeadCount)} </h6>
+    //         <hr style={{marginTop:'0'}}/>
+    //         <h6 className='mb-2'> Notes: <br/> Pasundo po sa kanto {Notes}</h6>
+    //         </Col>
+    //       </Row>
+        
+    //       {/* <Row>
+    //         <Col className='text-center'>
+    //         <h6 className='mb-2'> Notes: {Notes}</h6>
+    //         <p><DayJS  format="ddd DD MMM YYYY | hh:mm A">{BookingDate}</DayJS> </p>
+    //         </Col>
+    //       </Row> */}
+    //     </Card.Header>
+    //     <Card.Body>
+    //       <Card.Text>
+    //       <h6>{fullName}</h6>
+            
+    //         <Row className='mb-3 mx-1'>
+    //           <Col xs={1} md={1} lg={1} className='d-flex justify-content-end pt-1 px-1 timelineItem'>
+    //             <FontAwesomeIcon icon={faCircleDot} style={{color:'#81c784', fontSize:'18px',}} />
+    //           </Col>
+    //           <Col xs={11} md={11} lg={11}>
+    //           <span style={{fontSize:'13px'}}>
+    //             {/* <b>Location:</b> <br /> */}
+    //             {Location}
+    //           </span>
+    //           </Col>
+    //       </Row>
+    //       </Card.Text>
+    //       <Row>
+    //           <Col className='text-center'>
+    //                 <Button disabled={clickOnce} variant="outline-success" onClick={saveTransaction}>Pick-up</Button>
+    //           </Col>
+    //       </Row>
+    //     </Card.Body>
+    //   </Card>
+
     <Card
-        style={{ width: '18rem' }}
-        className="m-3" >
-        <Card.Header>
-          <Row>
-            <Col>
-              <h6>{fullName}</h6>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-            <p><DayJS  format="ddd DD MMM YYYY | hh:mm A">{BookingDate}</DayJS> </p>
-            </Col>
-          </Row>
-        </Card.Header>
-        <Card.Body>
-          <Card.Text>
-            <p className='mb-2'>Head Count: <b>{String(HeadCount)}</b> </p>
-            <p className='mb-2'>Notes: <b>{Notes}</b></p>
-            <Row className='mb-3'>
-              <Col xs={1} md={1} lg={1} className='d-flex justify-content-end pt-1 px-1 timelineItem'>
-                <FontAwesomeIcon icon={faCircleDot} style={{color:'#81c784', fontSize:'18px'}} />
-              </Col>
-              <Col xs={11} md={11} lg={11}>
-              <span style={{fontSize:'13px'}}>
-                <b>Location:</b> <br />
-                {Location}
-              </span>
-              </Col>
-          </Row>
-          </Card.Text>
-          <Row>
-              <Col className='text-center'>
-                    <Button disabled={clickOnce} variant="outline-success" onClick={saveTransaction}>Pick-up</Button>
-              </Col>
-          </Row>
-        </Card.Body>
-      </Card>
+    style={{ width: '23rem' }}
+    className="m-3 d-flex flex-row" >
+   <Card.Body className='d-flex flex-column align-items-center bg-success'>
+     <h5 className='text-center text-white'>Head</h5>
+     <br/>  <br/> 
+     <h1 className='text-white'>{HeadCount}</h1>
+     <br/> 
+   </Card.Body>
+     
+    <Card.Body>
+      <Card.Text>
+      <h6>{fullName}</h6>
+       <h6 className='mb-2'> Notes: <span className='text-success'>{Notes}</span></h6>
+          
+        <Row className='mb-3 mx-1'>
+
+          <Col xs={1} md={1} lg={1} className='d-flex justify-content-end pt-1 px-1 timelineItem'>
+            <FontAwesomeIcon icon={faCircleDot} style={{color:'#81c784', fontSize:'18px',}} />
+          </Col>
+          <Col xs={11} md={11} lg={11}>
+          <span style={{fontSize:'13px'}}>
+            <b>Location:</b> <br />
+            {Location}
+          </span>
+          </Col>
+          
+      </Row>
+      </Card.Text>
+      <Row>
+          <Col className=''>
+                <Button disabled={clickOnce} variant="outline-success" onClick={saveTransaction}>Pick-up</Button>
+          </Col>
+      </Row>
+    </Card.Body>
+  </Card>
   )
 }
 

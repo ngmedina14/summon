@@ -149,7 +149,7 @@ const DriverMap = () => {
       );
     }
     return  (
-      <MapContainer style={{border:'1px solid green', minHeight:'50vh'}} className='' center={[latitude,longitude]} zoom={16}>
+      <MapContainer style={{border:'1px solid green', minHeight:'65vh'}} className='' center={[latitude,longitude]} zoom={16}>
         <TileLayer url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"/>
         <LocationMarker latitude={latitude} longitude={longitude}/>
       </MapContainer>
@@ -162,14 +162,25 @@ const DriverMap = () => {
     <Container className='px-4'>
     
     <Row className='pt-3'>
-      <div className='d-flex justify-content-between'>
-      <span style={{fontSize:'18px', fontWeight:'bold'}}>{transaction.client_fname+ ' ' +transaction.client_lname}</span>
-      {/* <div className="vr" /> */}
-      <span style={{fontSize:'18px'}}><b>Total Amount: </b> &#8369; {transaction.total_amount} </span>
+      <div className='d-flex'>
+      <div style={{fontSize:'18px', fontWeight:'bold'}} className='flex-grow-1'>{transaction.client_fname+ ' ' +transaction.client_lname}</div>
+     <div className='col-3'> 
+     <span style={{fontSize:'16px'}} className='d-flex flex-column justify-content-center align-items-center fw-bold'>
+        <div>Total Amount</div>  <div>&#8369; {transaction.total_amount}</div>
+      </span>
+     </div>
+     <div className='col-3'>
+     <span style={{fontSize:'16px'}} className='d-flex flex-column justify-content-center align-items-center fw-bold'>
+        <div>Head Count</div>  <div> {transaction.head_count}</div>
+      </span>
+     </div>
       </div>
-      <p style={{marginBottom: '0'}}><b> Location: </b> {transaction.location}</p>
-      <p style={{marginBottom: '0'}}> <b>Head Count: </b> {transaction.head_count}</p>
+      
+      {/* <p style={{marginBottom: '0'}}> <b>Head Count: </b> {transaction.head_count}</p> */}
       <p style={{marginBottom: '0'}}> <b>Notes: </b>{transaction.notes}</p>
+      <p style={{marginBottom: '0'}}><b> Location: </b> {transaction.location}</p>
+      
+      
       
     </Row>
 

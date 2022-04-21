@@ -8,6 +8,7 @@ import DriverCard from '../../includes/DriverCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleDot, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../includes/Header';
+import swal from 'sweetalert';
 
 
 
@@ -16,6 +17,13 @@ const DriverArrival = () => {
     const navigate = useNavigate();
     const [locationName, setLocationName] = useState();
     const [todaLocationName, setTodaLocationName] = useState();
+    const [onTimeAlert, setOTA] = useState(true);
+
+
+    const Alert = (message)=>{
+      swal('Alert', message, '');
+    }
+
 
     const retrieveLocalData = (data) => {
       let dataArray = JSON.parse(localStorage.getItem(data))
@@ -103,11 +111,15 @@ const DriverArrival = () => {
               axios.get("client/check-completed-transaction/"+transaction.id)
               .then((res) => {
                   if(res.status === 200) {
+                    if (onTimeAlert){
+                      Alert(res.data.message);
+                      setOTA(false)
+                    }
                     setBtnDone('block')
                   } 
               });
           
-          setState({ num: state.num + 1 })}, 5000);
+          setState({ num: state.num + 1 })}, 1000);
   
         return () => clearTimeout(timer);
       }
@@ -126,9 +138,10 @@ const DriverArrival = () => {
             </Col>
         </Row>
 
-        <DriverCard transaction={transaction} />
+       
       
         <Container>
+        <DriverCard transaction={transaction} />
       <Row className='mb-3'>
         <Col xs={1} md={1} lg={1} className='d-flex justify-content-end pt-1 px-1 timelineItem'>
           <FontAwesomeIcon icon={faCircleDot} style={{color:'#81c784', fontSize:'18px'}} />

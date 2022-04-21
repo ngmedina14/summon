@@ -1,9 +1,10 @@
 import React, {useState,useEffect,useRef} from 'react';
 import {Container, Form, Button} from 'react-bootstrap';
-import pasundo2 from '../../images/pasundo2.png';
+import waiting from '../../images/waiting.png';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../includes/Header';
+
 
 
 
@@ -84,7 +85,7 @@ const WaitingForDriverConfirmation = (props) => {
       <Container className="p-2 ">
       <div className=' d-flex flex-column justify-content-center align-items-center mt-5'>
           <div className=''>
-            <img src={pasundo2} width='160px' height='160px' alt="" className='rounded-circle'/>
+            <img src={waiting} alt="" className='img-fluid w-100'/>
           </div>
       </div>
       {/* <div className='mt-5'>

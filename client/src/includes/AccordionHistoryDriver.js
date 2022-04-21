@@ -19,11 +19,11 @@ const AccordionHistoryDriver = ({ BookingDate, Latitude, Longitude, Notes, Mobil
                
             </Accordion.Header>
             <Accordion.Body>
-            <Row className='mb-3'>
-                <Col xs={4}>
-                <img src={driver1} alt="" width='110px' height='110px' className='border' />
+            <Row className='p-0'>
+                <Col xs={3}>
+                <img src={driver1} alt="" width='110px' height='110px' className='border' style={{margin:'0'}} />
                 </Col>
-                <Col xs={8} className='text-right'>
+                <Col xs={9} className='text-left'>
                 <p style={{fontSize: '17px', fontWeight: 'bold', margin: '0'}}>{FullName}</p>
                 <p style={{fontSize: '14px', margin: '0'}}><b> &#8369; {Amount} </b></p>
                 <p style={{margin: '0'}}>{Mobile}</p>
@@ -31,15 +31,10 @@ const AccordionHistoryDriver = ({ BookingDate, Latitude, Longitude, Notes, Mobil
                 <p><b>Notes: </b>{Notes}</p>
                </Col>
             </Row>
-            {/* <Row className='mb-3'>
-                <Col xs={12} className='text-right'>
-                <p><b>Head Count:</b> {HeadCount}</p>
-                <p><b>Notes: </b>{Notes}</p>
-               </Col>
-            </Row> */}
+          
 
             <Container>
-                <Row className='mb-3'>
+                <Row className='mb-1'>
                     <Col xs={1} md={1} lg={1} className='d-flex justify-content-end pt-1 px-1 timelineItem'>
                     <FontAwesomeIcon icon={faCircleDot} style={{color:'#81c784', fontSize:'18px'}} />
                     </Col>
