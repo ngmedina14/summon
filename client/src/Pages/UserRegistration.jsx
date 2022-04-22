@@ -70,7 +70,7 @@ import swal from 'sweetalert';
                             navigate('/Login')
                         }
                         if (res.data.hasOwnProperty('message')){
-                            swal("Invalid User Registration", res.data.message, 'warning', '#66bb6a');
+                            swal("Invalid User Registration", res.data.message, 'warning');
                             console.log(res.data.message);
                         }
                     

@@ -21,7 +21,7 @@ const Summon = () => {
   },[])
 
   return (
-    <>
+    <div style={{overflow: 'hidden'}}>
     <LandingPageNavBar />
     <HeroSection />
     <AboutSection/>
@@ -29,7 +29,7 @@ const Summon = () => {
     <Footer />
     
 
-    </>
+    </div>
   )
 }
 

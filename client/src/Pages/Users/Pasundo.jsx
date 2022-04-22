@@ -23,7 +23,7 @@ const Pasundo = () => {
       <div style={{minHeight:'90vh'}} className='d-flex flex-column justify-content-center align-items-center'>
       
           <div>
-            <img src={pasundo2} width='160px' height='160px' alt="" className='rounded-circle'/>
+            <img src={pasundo2}  alt="" className='rounded-circle w-100 img-fluid'/>
           </div>
     
         <div>

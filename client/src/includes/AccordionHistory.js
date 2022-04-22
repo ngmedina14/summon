@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import DayJS from 'react-dayjs';
 import {Accordion, Col, Container,  Row} from 'react-bootstrap';
-import driver1 from '../images/driver1.jpg';
+import driver1 from '../images/driver2.jpg';
 import TheTimeline from '../includes/TheTimeline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleDot, faLocationDot } from '@fortawesome/free-solid-svg-icons';

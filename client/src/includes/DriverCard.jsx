@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Card} from 'react-bootstrap';
-import driver1 from '../images/driver1.jpg';
+import driver1 from '../images/driver2.jpg';
 
 const DriverCard = ({transaction}) => {
   return (
